@@ -16,7 +16,7 @@
 	
 		<br><br>
 
-		<h1 id="Title">Programming Fundamentals</h1>
+		<h1>Programming Fundamentals</h1>
 		<hr>
 		
 		<h2>Binary Numbers</h2>
@@ -162,6 +162,7 @@
 				For example, "Hello World" is a string and an array of characters.
 				We would say that the length of the string is 11 elements (characters) long, and it occupies indices 0 to 10.
 				The space character would have an index of 5.
+				Please note that when using arrays, the term 'subscript' rather than 'index' is sometimes used; this has nothing to do with subscript text in wordprocessing.
 			</p>
 		</h3>
 		<table>
@@ -370,7 +371,7 @@
 				They are interchangeable in most situations.
 			</p>
 			<p>
-				There are five relational operators: less than (&lt;), less than or equal to (&le; or &lt;=), greater than (&gt;), greater than or equal to (&ge; or &gt;=), and equals (==).
+				There are size relational operators: less than (&lt;), less than or equal to (&le; or &lt;=), greater than (&gt;), greater than or equal to (&ge; or &gt;=), equals (==), and not equals (!=).
 				Note that we normally write less than or equal to as '&lt;=' and greater than or equal to as '&gt;='.
 				Also note that when we want to test if two things are equal (remember that we'll receive a 1 (true) or 0 (false) value back) we have to use a double equals sign.
 				This is because the single equals is already reserved for assignment.
@@ -521,7 +522,7 @@
 				Casting, where a value represented in one datatype is converted to another equivalent value represented by a different datatype, is an important concept to understand.
 				In some languages, your program might require you to have a value in a certain type.
 				This might require turning an int into a double or a double into an int (note that if we convert a double, such as 5.492, into an int, it will become just 5, and we'll lose some data precision).
-				We might also have to turn a character into its numeric ASCII representation or visa versa, or likewise with its unicode representation.
+				We might also have to turn a character into its numeric ASCII representation or vice versa, or likewise with its unicode representation.
 				We could have to turn an int into a string (so the number 10 becomes the string "10"), or back (so the string "15" becomes the int 15).
 				There are many possibilities, so being aware of this concept may come in useful when you are programming.
 			</p>
@@ -531,15 +532,144 @@
 		
 		<h3>
 			<p>
-				Casting, where a value represented in one datatype is converted to another equivalent value represented by a different datatype, is an important concept to understand.
-				In some languages, your program might require you to have a value in a certain type.
-				This might require turning an int into a double or a double into an int (note that if we convert a double, such as 5.492, into an int, it will become just 5, and we'll lose some data precision).
-				We might also have to turn a character into its numeric ASCII representation or visa versa, or likewise with its unicode representation.
-				We could have to turn an int into a string (so the number 10 becomes the string "10"), or back (so the string "15" becomes the int 15).
-				There are many possibilities, so being aware of this concept may come in useful when you are programming.
+				Now that we've learned about datatypes, variables, and operators, we're ready to learn about expressions.
+				Expressions in CS (Computer Science) are very similar to expressions in math, in that they are a mix of values and operations which need to be 'evaluated' to give a final result.
+				Like mathematical expressions, they have a specific order of operations which is an internationally-recognized standard of which operations take precedence over which others.
+				In math, you probably learned about PEMDAS (Parenthesis, Exponentiation, Multiplication/Division, Addition/Subtraction) and evaluating from left to right.
+				In computer science, it's pretty much the same order, but with some additional operators.
+				A good reference on CS order of operations is <a href="https://www.computerhope.com/jargon/o/order-of-operations.htm">this</a> page, particularly the section on C's order of operations (C is a programming language).
+				Don't worry about the operations you don't know about yet.
+				As the page says, some languages require programmers to define an order of operations, or simply go left to right; however, most languages have an order of operations similar to C's.
 			</p>
+			<p>
+				The best way to learn expressions is just to try a bunch of them.
+				So <a href="">here</a> is a large list of sample expressions and explanations for you to peruse at your leisure.
+			<p>
 		</h3>
 		
+		<h2>De Morgan's Law</h2>
+		
+		<h3>
+			<p>
+				If you look at the <a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws">wikipedia page for De Morgan's Law</a> you will be likely very confused and somewhat intimidated.
+				However, it is really quite simple.
+				De Morgan's law essentially tells us what happens when we take an expression, such as
+				<code>a AND b &lt; c</code>,
+				and stick a NOT in front of the whole thing, like so:
+				<code>NOT (a AND b &lt; c)</code>.
+				What we have to do is systematically go through the expression, replacing each relational or logical operator with its inverse.
+				So <code>NOT (a AND b &lt; c) = (a OR b &gt;= c)</code>.
+				Here's a handy chart of each operator we need to replace and its inverse:
+			</p>
+		</h3>
+		<table>
+			<tr>
+				<th>Operator</th>
+				<th>Inverse</th>
+			</tr>
+			<tr>
+				<td>AND</td>
+				<td>OR</td>
+			</tr>
+			<tr>
+				<td>OR</td>
+				<td>AND</td>
+			</tr>
+			<tr>
+				<td>NOT</td>
+				<td>NOT</td>
+			</tr>
+			<tr>
+				<td>&gt;</td>
+				<td>&lt;=</td>
+			</tr>
+			<tr>
+				<td>&lt;</td>
+				<td>&gt;=</td>
+			</tr>
+			<tr>
+				<td>&gt;=</td>
+				<td>&lt;</td>
+			</tr>
+			<tr>
+				<td>&lt;=</td>
+				<td>&gt;</td>
+			</tr>
+			<tr>
+				<td>==</td>
+				<td>!=</td>
+			</tr>
+			<tr>
+				<td>!=</td>
+				<td>==</td>
+			</tr>
+		<table>
+		<h3>
+			<p>
+				Some examples:
+			</p>
+			<div class="codeinset">
+				<code>NOT(y &gt; x OR a &lt; b) becomes (y &lt;= x AND a &gt;= b)</code><br>
+				<code>NOT(numDogs != numCats) becomes (numDogs == numCats)</code><br>
+				<code>NOT(vec1 &gt; vec2 AND vec3 &gt;= vec4) becomes (vec1 &lt;= vec2 OR vec3 &lt; vec4)</code><br>
+			</div>
+		</h3>
+		
+		<h2>Conditionals</h2>
+		
+		<h3>
+			<p>
+				If we want to make decisions in our programs, we'll need to use <i>conditionals</i>.
+				These allow us to create structure in our programs by having <i>branches</i>, which basically say "If thing X is true, do thing Y. If thing X is not true, do thing Z."
+				Unsurprisingly, the main conditional structure is called the <code>if</code> conditional.
+			</p>
+			<p>
+				An <code>if</code> conditional has the following form:
+			</p>
+			<div class="codeinset">
+				<code>IF (some condition):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;do this</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				Where the condition is an expression that must evaluate to True for the code in the <code>do this</code> section to be executed.
+				If we want a little more control over our program, we can use the <code>else</code> conditional:
+			</p>
+			<div class="codeinset">
+				<code>IF (some condition):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;do this1</code><br>
+				<code>}</code><br>
+				<code>ELSE</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;do this2</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				In this case, if <code>some condition</code> is True, <code>do this1</code> is executed. If <code>some condition</code> is False, <code>do this2</code> is executed.
+				If we really want things to get spicy, we can use an <code>else if</code> conditional:
+			</p>
+			<div class="codeinset">
+				<code>IF (some condition):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;do this1</code><br>
+				<code>}</code><br>
+				<code>ELSE IF (some other condition):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;do this2</code><br>
+				<code>ELSE</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;do this3</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				Quite predictably, if <code>some condition</code> is True, <code>do this1</code> is executed. If <code>some other condition</code> is True, <code>do this2</code> is executed.
+				If both <code>some condition</code> and <code>some other condition</code> are False, <code>do this3</code> will be executed.
+				An important thing to recognize is that if the program 'goes into' the first <code>IF</code> (this is programmer-speak for when the first condition is true and <code>do this1</code> is executed),
+				it will not even check the else if condition, much less go into it. This means that three <code>if</code> blocks in a row will potentially behave differently from an <code>if</code> and two <code>else if</code> conditionals.
+			</p>
+		</h3>
 	</div>
 </body>
 

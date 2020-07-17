@@ -94,9 +94,6 @@ Libraries and Modules
 
 nth D arrays
 
-Some examples and practice
-
-
 
 OOP
 
