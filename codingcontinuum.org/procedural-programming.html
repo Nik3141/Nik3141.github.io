@@ -8,7 +8,7 @@
 	<title>Procedural Programming</title>
 	
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	<base target="_self">
+	<base target="_blank">
 </head>
 
 <body>
@@ -18,11 +18,126 @@
 		<h4><p><a target="_self" href="index.html">Home</a></p></h4>
 		<h1>Procedural Programming</h1>
 		<hr>
+		
+		<h3><p>Please read the <a target="_self" href="programming-fundamentals.html">programming fundamentals</a> page before reading this page.</p></h3>
+		
+		<h2>Functions</a>
+		
+		<h3>
+			<p>
+				The first idea we need to explore is that of a <i>function</i>, which is sometimes called a <i>method</i>, <i>subroutine</i>, or <i>procedure</i> when used in a CS (Computer Science) context.
+				A function is a mapping between inputs and outputs; it is a set of instructions which dictate what should be done to a set of inputs to create the corresponding set of outputs.
+			</p>
+			<p>
+				In math, you've likely encountered functions which take in a single input and return a single output; some commonly recognized examples would be trigonometric or logarithmic functions: sin(x), cos(x), ln(x), etc.
+				We can also define our own functions using function notation, like this: f(x) = x^2, g(x) = 2x - 3, h(x) = 3sin(2&pi;x).
+			</p>
+			<p>
+				Similarly, in CS we can <i>define</i> our own functions which accept data in the form of variables, called <i>parameters</i>.
+				We can then use statements and control structures to dictate what should be done to the parameters to obtain our output values, known as <i>return values</i>.
+				Some languages restrict functions to only have one return value, while in others we can have an arbitrary amount of return values.
+			</p>
+			<p>
+				The main benefit of using functions while programming is that you can write code to perform some task once, and then reuse it an indefinite amount of times.
+			</p>
+		</h3>
+		
+		<h2>A Simple Example</h2>
+		
+		<h3>
+			<div class="codeinset">
+				<code>FUNCTION addSeven(inputNumber):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;outputNumber = inputNumber + 7;</code><br>
+				<code>&emsp;&emsp;return outputNumber</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				In the example above, the <code>function</code> keyword tells the computer that the following code block is the body of a function.
+				Right after the keyword is the name of the function, <code>addSeven</code>, and in parenthesis the parameters which the function will accept; in this case, there is only one: <code>inputNumber</code>.
+				The body of the function contains two statements, the first of which assigns the value of the expression <code>inputNumber + 7</code> to the variable outputNumber.
+				The second statement starts with the <code>return</code> keyword, which basically alerts the computer that whatever expression follows it should be the returned value (should be the output).
+			</p>
+			<p>
+				In fact, we could actually shorten this code even further by combining the two statements in the body into a single statement:
+			</p>
+			<div class="codeinset">
+				<code>FUNCTION addSeven(inputNumber):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;return inputNumber + 7</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				What we've done is eliminated the middleman.
+				Because the <code>return</code> keyword signals that the entire expression to its right should be returned, we can remove the <code>outputNumber</code> variable and simply put its value as the expression to be returned.
+			</p>
+			<p>
+				Now that we have a nice, clean example function defined, let's use it!
+				Because our function deals with numeric datatypes, it makes the most sense to use it in an expression, so let's try to evaluate <code>15 - addSeven(2)</code>.
+			</p>
+			<p>
+				The first step will be evaluating the term <code>addSeven(2)</code>, which is known as a <i>function call</i>.
+				In a function call, we <i>pass</i> a value (or a variable, which represents a value) to the function, and the function <i>returns</i> an output value based on what value was sent to it.
+				In this case, the function takes the input number, adds seven, and then returns it, so if the input is 2, the output will be 9.
+				Hence the whole expression will evaluate to <code>15 - 9 = 6</code>.
+			</p>
+		</h3>
+		
+		<h2>Another Example</h2>
 
 		<h3>
-			
+			<div class="codeinset">
+				<code>FUNCTION sum(num1, num2):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;outputNumber = num1 + num2</code><br>
+				<code>&emsp;&emsp;return outputNumber</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				Here we have a function, called <code>sum</code>, which accepts two parameters, <code>num1</code> and <code>num2</code>.
+				Notice that when we have multiple parameters, they are notated as a comma-separated list.
+				The function assigns the sum of those two parameters to the variable <code>outputNumber</code>, and then returns that value.
+				As before, we can eliminate the middleman to change the function to this:
+			</p>
+			<div class="codeinset">
+				<code>FUNCTION sum(num1, num2):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;return num1 + num2</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				Now, let's try it in an expression: <code>sum(5, 6) * sum(2, -5)</code>.
+				This evaluates to <code>11 * -3 = -33</code>. Pretty simple.
+				Let's get a little spicy: <code>sum(addSeven(2), addSeven(-5))</code>.
+				Here, we have the function from the first example, <code>addSeven()</code>, <i>inside</i> our <code>sum()</code> function, as an argument.
+				One thing you'll notice is that when talking about functions, we normally write the function name followed by and open and closed parenthesis.
+				To evaluate this, we'll first evaluate the <code>addSeven()</code> function calls, and then the <code>sum()</code> function.
+				<code>sum(addSeven(2), addSeven(-5)) = sum(9, 2) = 11</code>
+			</p>
 		</h3>
-
+		
+		<h2>Libraries</h2>
+		
+		<h3>
+			<p>
+				<i>Libraries</i> (sometimes known as <i>modules</i>), are packages of <a href="https://en.wikipedia.org/wiki/Open_source">open-source</a> (free to use) software which provide useful functions/procedures which you can use in your own code.
+				Libraries are normally developed around a common theme, like providing advanced mathematical or statistical analysis functions or making GUI (Guided User Interface) creation easier.
+				This is super helpful when programming, because it means that you don't have to write your whole program from the ground up.
+				Additionally, since library authors wrote the entire suite of functionality for a specific purpose, it is normally super optimized and efficient, and doesn't require you to learn the ins and outs of whatever particular algorithm they're implementing.
+			<p>
+		</h3>
+		
+		<h2>In Conclusion</h2>
+		
+		<h3>
+			<p>
+				Honestly, that's pretty much all you need to know about functions at a conceptual level.
+				As you become more knowledgeable about programming, the types of parameters and return values you deal with will broaden, and the types of things you do in the function body will become more advanced and diverse, but the general concept is always the same: input in, output out.
+			</p>
+			<p>
+				Now that you know about the fundamentals of programming and how CS functions work, it's time to learn about <a href="oop-programming.html">OOP</a> (Object Oriented Programming).
+			</p>
+		</h3>
 	</div>
 </body>
 

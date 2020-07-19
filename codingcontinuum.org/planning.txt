@@ -92,16 +92,59 @@ While
 
 Multidimensional Datastructures
 
-Functional Programming 
+Procedural Programming 
 
-What is a function?
-It takes an input, does something to it, and returns an output.
-Examples of functions in math.
+Functions
+A function is a mapping between inputs and outputs; it is a set of instructions which dictate what should be done to a set of inputs to create the corresponding set of outputs.
+
+In math - depending on your level, you may have experience with functions of varying dimensionality, but most people have probably encountered functions that take in a single input and return a single output.
+Some commonly understood examples: sin(x), cos(x), ln(x)
+We can also define our own functions: f(x) = x + 7 is a simple example, where the input is a variable x, and the output is whatever x was, plus 7.
+
+In computer science, it is much the same: a function takes in several pieces of data, which are called <i>parameters</i>.
+These parameters are variables, because like in the example f(x) = x + 7 above, we don't know ahead of time what x will equal.
+We use control structures (remember if, else if, else, and while?) to manipulate the parameters and get our desired outputs
+In some programming languages, functions can only have one output, while in others functions can have an arbitrary amount of outputs.
+
+The main benefits of functions are that you can write some code to perform a specific task once, and then reuse it as much as you want.
+
+Example Function 1
+
+Let's now look at an example function and break down some of its parts.
+
+FUNCTION addSeven(inputNumber):
+{
+	outputNumber = inputNumber + 7
+	return outputNumber
+}
+
+As you can see, we start with the function declaration, which tells the computer that this code block is going to be a function, called 'addSeven', which accepts one parameter, called 'inputNumber'.
+Inside the body of the function, we have two statements. The first one creates a variable called outputNumber and sets it equal to the value stored in inputNumber, plus seven.
+The second statement 'returns' the value, which essentially says "I'm done with my computations; here's the output'.
+
+So now that we've defined a function, how do we use it? Let's look at an example expression:
+
+15 - addSeven(2)
+
+We have a "function call" to the function 'addSeven', where we 'pass' the value 2 to the function.
+In this case, the value 2 is the 'argument'. An argument is a value 'passed into' a function, which when inside the function is represented as one of the parameters.
+If we look back at the function, we can see that the input number has the number 7 added to it and then is returned, so in our expression, the addSeven(2) term will evaluate to 2 + 7 = 9.
+Therefore, the expression becomes 15 - 9, which evaluates to 6.
+
+Example Function 2
+
+Let's look at another, slightly more complicated example:
+
+FUNCTION sum(num1, num2):
+{
+	return num1 + num2
+}
+
+Here, we can see that we have a function called 'sum', which accepts two parameters, num1 and num2.
+The body of the function consists of a single return statement, which returns the sum of num1 and num2.
+Note that the return keyword returns the value of the expression which follows it, meaning we can use any expression (including num1 + num2).
 
 Libraries and Modules
 
-nth D arrays
 
 OOP
-
-Functional
