@@ -90,6 +90,14 @@ Loops
 For
 While
 
+Multidimensional Datastructures
+
+Functional Programming 
+
+What is a function?
+It takes an input, does something to it, and returns an output.
+Examples of functions in math.
+
 Libraries and Modules
 
 nth D arrays

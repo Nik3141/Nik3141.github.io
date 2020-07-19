@@ -931,6 +931,32 @@
 			</div>
 		</h3>
 		
+		<h2>Multidimensional Datastructures</h2>
+		
+		<h3>
+			<p>
+				The last thing I want to touch on briefly is the idea of a <i>multidimensional</i> datastructure.
+				This is what results from nesting a datastructure inside another datastructure; for example, making an array of arrays of ints.
+				If you want to visualize it with an analogy, you might have a large stage, representing the top-level array.
+				On it are a number of tables, each labeled with their index number in the top-level array.
+				Each table has a number of cups on it, which are also labeled with their index numbers.
+				Inside each cup is a value.
+			</p>
+			<p>
+				When we wanted to point to a specific value in our single-dimensional array, we simply used the index as our key.
+				In our 2D array, things get slightly more complicated.
+				Each table has an index, and each cup on each table has an index.
+				So to refer to the third cup on the second table, we should refer to the cup with index 2 on the table with index 1
+				(remember that arrays are 0-indexed, so the 5th element has an index of 4).
+			</p>
+			<p>
+				In a similar vein, we could conceptualize a dictionary with dictionaries inside it, or even a dictionary with arrays inside of it.
+				Our stage could be a dictionary, filled with tables (arrays) which each are labeled with their string-type key, and those tables have indexed cups on them.
+				We could even think of a 3D structure, or an array filled with arrays filled with arrays filled with something.
+				The possibilies are pretty much endless.
+			</p>
+		</h3>
+		
 		<h2>In Conclusion</h2>
 		
 		<h3>
@@ -953,11 +979,12 @@
 				- De Morgan's Law guides us on how to change an expression with a NOT at the front.<br>
 				- There are three control structures: sequence, conditional, and iterative.<br>
 				- There are three conditional types: <code>if</code>, <code>else if</code>, and <code>else</code>.<br>
-				- A <code>while</code> loop acts like a repeating <code>if</code> statement.
+				- A <code>while</code> loop acts like a repeating <code>if</code> statement.<br>
+				- We can nest datastructures inside other datastructures to make multidimensional datastructures.
 			</p>
 			<p>
 				Thank you for reading through this, and I hope you learned something.
-				Next, please check out the <a href="functional-programming.html">Functional Programming</a> or <a href="oop-programming.html">Object Oriented Programming</a> courses.
+				Next, please check out the <a href="procedural-programming.html">Procedural Programming</a> course.
 			</p>
 		</h3>
 	</div>
