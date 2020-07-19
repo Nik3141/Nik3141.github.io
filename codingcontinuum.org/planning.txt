@@ -146,5 +146,16 @@ Note that the return keyword returns the value of the expression which follows i
 
 Libraries and Modules
 
-
 OOP
+
+Object Oriented Programming attempts to make programming more understandable and intuitive to humans by introducing the idea of an 'object'.
+In the real world, we can group objects into categories which all have the same properties and behaviors, but each object might have a different value for a particular property.
+For example, all bicycles have a frame made out of some material; however, different bicycles might be made out of different materials.
+
+OOP lets us define our own 'categories' of objects, which we call <i>classes</i>.
+These classes will have properties and behaviors: for example, if we made a bicycle class, it might have a wheel_size property, and a handle_shape property, etc.
+We can then make specific <i>instances</i> of those classes, which actually have values for those variables; each instance we make could have different values, but they'd all share the type of object that they are: a bicycle.
+
+Another way to think of it is like this: a class is like a blueprint or a general description of what properties and behaviors an object might have; it's the <i>idea</i> of what a bicycle is.
+An instance of an object is an actual thing you'd encounter out in the real world; it's the bicycle which might almost knock you off the pavement while you're on your evening walk.
+The bicycle idea tells us that bicycles have a frame which has a color, but different bicycles can have different colors.
