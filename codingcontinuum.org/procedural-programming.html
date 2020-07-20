@@ -116,6 +116,64 @@
 			</p>
 		</h3>
 		
+		<h2>A Challenging Example</h2>
+		
+		<h3>
+			<p>
+				On the <a href="control-structures.html">control structures</a> page, we learned how to use a loop to sum up the values in an array.
+				Let's try to do the same thing, but wrap it in a function, so that we can sum up any array we want, as many times as we want.
+			</p>
+			<div class="codeinset">
+				<code>FUNCTION sumArray(array):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;int i = 0;</code><br>
+				<code>&emsp;&emsp;int sum = 0;</code><br>
+				<code>&emsp;&emsp;WHILE i &lt; ?:</code><br>
+				<code>&emsp;&emsp;{</code><br>
+				<code>&emsp;&emsp;&emsp;&emsp;sum = sum + array[i];</code><br>
+				<code>&emsp;&emsp;&emsp;&emsp;i = i + 1;</code><br>
+				<code>&emsp;&emsp;}</code><br>
+				<code>&emsp;&emsp;return sum;</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				You'll notice that we used our <code>function</code> keyword to alert the computer that the block of code will be a function.
+				The function is named <code>sumArray</code> and accepts one parameter, <code>array</code>.
+				Inside the function we declare two variables, <code>i</code> and <code>sum</code>, and assign them to 0.
+				Then, we have a <code>while</code> loop, inside of which we add the next array value (<code>array[i]</code>) to the running tally <code>sum</code>, and then increase the value of <code>i</code> by one for the next loop iteration.
+				Finally, once the loop is done, we will return the value of the <code>sum</code> variable.
+			</p>
+			<p>
+				However, you'll notice that we've run into a little snag in our <code>while</code> conditional.
+				The problem is that previously, we knew that we had five elements in our array, so the array values went from 0 to 4.
+				However, right now, we don't know exactly how many values the input <code>array</code> will have; if we put in an arbitrary number - say, 5 - we will end up with an <code>IndexOutOfBoundsError</code> if our actual input has a different number of elements.
+			</p>
+			<p>
+				This conveniently gives me an opportunity to talk about <i>built-in functions</i>.
+				These functions are provided by some languages and they allow us to get information such as the number of elements in the array.
+				This is very helpful, because to traverse a general array, we need our <code>i</code> to vary from 0 to the length of the array minus 1.
+				For now, we're going to assume that our programming language has a <code>length()</code> function built in, which tells us the length of an array.
+				Depending on the language the name of the function and how to use it varies slightly, but again, the concept is the important part here.
+				Let's try rewriting our function using our <code>length()</code> built-in function:
+			</p>
+			<div class="codeinset">
+				<code>FUNCTION sumArray(array):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;int i = 0;</code><br>
+				<code>&emsp;&emsp;int sum = 0;</code><br>
+				<code>&emsp;&emsp;WHILE i &lt; length(array):</code><br>
+				<code>&emsp;&emsp;{</code><br>
+				<code>&emsp;&emsp;&emsp;&emsp;sum = sum + array[i];</code><br>
+				<code>&emsp;&emsp;&emsp;&emsp;i = i + 1;</code><br>
+				<code>&emsp;&emsp;}</code><br>
+				<code>&emsp;&emsp;return sum;</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				
+			</p>
+		</h3>
+		
 		<h2>Libraries</h2>
 		
 		<h3>
@@ -127,6 +185,9 @@
 				Some examples of popular Python libraries include: <a href="https://github.com/3b1b/manim">manim</a>, <a href="https://www.pygame.org/wiki/about">pygame</a>, or <a href="https://numpy.org/">numpy</a>.
 				If they look intimidating right now, take a deep breath and don't worry. We'll get there.
 			<p>
+			<p>
+				However, we have a problem
+			</p>
 		</h3>
 		
 		<h2>In Conclusion</h2>

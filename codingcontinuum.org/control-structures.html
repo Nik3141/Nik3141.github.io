@@ -615,10 +615,105 @@
 				Our summation didn't change, though.
 			</p>
 			<p>
-				Going backwards is actually vital in some applications: consider what happens if you traverse forwards and delete an item?
+				Going backwards is actually vital in some applications: consider what happens if you traverse forwards and delete an item.
 				Then your array is one item shorter, and the "next" item which you need to access is in the same spot as the one you just deleted.
 				If you increase your <code>i</code> by one, you will completely skip that item, which is no good.
 				However, if you traverse backwards, you avoid that issue.
+			</p>
+			<p>
+				The last thing I want to mention is what happens when you try to access an array value which doesn't exist.
+				Say we have the code segment from the beginning of this section:
+			</p>
+			<div class="codeinset">
+				<code>integerArray = [1, 2, 3, 4, 5]</code><br>
+				<code>int i = 0;</code><br>
+				<code>int sum = 0;</code><br>
+				<code>WHILE i &lt; 5:</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;sum = sum + integerArray[i];</code><br>
+				<code>&emsp;&emsp;i = i + 1;</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				Now, let's change the condition to the following:
+			</p>
+			<div class="codeinset">
+				<code>integerArray = [1, 2, 3, 4, 5]</code><br>
+				<code>int i = 0;</code><br>
+				<code>int sum = 0;</code><br>
+				<code>WHILE i &lt; 6:</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;sum = sum + integerArray[i];</code><br>
+				<code>&emsp;&emsp;i = i + 1;</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				What will happen is that there will be six loop iterations rather than five loop iterations, because <code>i</code> can vary from 0 to 5 rather than 0 to 4, as before.
+				This means that on the last iteration, the statement <code>sum = sum + integerArray[i]</code> will throw an <i>error</i>, which means we gave the computer an invalid instruction.
+				If we look at our table for this particular loop, we might be able to divine why we got an error:
+			</p>
+		</h3>
+		<table>
+			<tr>
+				<th>Loop #</th>
+				<th><code>i</code></th>
+				<th><code>integerArray[i]</code></th>
+				<th><code>sum</code></th>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>0</td>
+				<td>1</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>2</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>2</td>
+				<td>3</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>3</td>
+				<td>4</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>4</td>
+				<td>5</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>5</td>
+				<td>N/A</td>
+				<td>15</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>6</td>
+				<td>N/A</td>
+				<td>15</td>
+			</tr>
+		</table>
+		<h3>
+			<p>
+				Our code told the computer to add the value of <code>sum</code>, which was 15, to the value of <code>integerArray[5]</code>.
+				The problem is that <code>integerArray[5]</code> doesn't exist, because the array only has five elements at array indicies 0 to 4.
+				Thus, our code would throw an <code>IndexOutOfBoundsError</code>, which happens if we try to access any invalid index (anything less than 0 or more than the length of the array minus one).
+			</p>
+			<p>
+				I know that loops are hard, and thinking about them can make your brain hurt.
+				However, take some consolation in the knowledge that like all difficult things, if you do lots of practice, it'll become much easier.
+				Additionally, if you know that a loop is traversing an array - a huge hint will be if there is a variable like our <code>i</code> which happens to go through all of the index values -
+				you can generally use heuristics to intuit what the loop is doing, rather than having to chart out the whole thing.
 			</p>
 		</h3>
 		
@@ -632,7 +727,8 @@
 				- A <code>while</code> loop acts like a repeating <code>if</code> statement.<br>
 				- Traversing an array means to use a loop to do something to every element in an array, in order.<br>
 				- If we want to sum the contents of an array, we need to create a variable to store a running tally, and then add each array element sequentially.<br>
-				- Sometimes, we might want to traverse backwards to avoid issues stemming from changing the amount of items in the array.
+				- Sometimes, we might want to traverse backwards to avoid issues stemming from changing the amount of items in the array.<br>
+				- If we try to access an element which does not exist, we will get an <code>IndexOutOfBoundsError</code>
 			</p>
 			<p>
 				Next, please check out the <a target="_self" href="procedural-programming.html">Procedural Programming</a> page.
