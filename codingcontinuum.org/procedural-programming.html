@@ -36,6 +36,7 @@
 				Similarly, in CS we can <i>define</i> our own functions which accept data in the form of variables, called <i>parameters</i>.
 				We can then use statements and control structures to dictate what should be done to the parameters to obtain our output values, known as <i>return values</i>.
 				Some languages restrict functions to only have one return value, while in others we can have an arbitrary amount of return values.
+				We can then use these defined functions elsewhere in our code.
 			</p>
 			<p>
 				The main benefit of using functions while programming is that you can write code to perform some task once, and then reuse it an indefinite amount of times.
@@ -170,7 +171,53 @@
 				<code>}</code><br>
 			</div>
 			<p>
-				
+				Our <code>while</code> loop's condition now limits the values of <code>i</code> to go from 0 to one less than the length of the array.
+				Arrays are 0-indexed, so the indicies go from 0 to the length of the array minus one.
+				Therefore, our <code>i</code> value now exactly corresponds with the indicies of the array, which means the loop will traverse the array successfully, with no <code>IndexOutOfBoundsError</code>.
+			</p>
+			<p>
+				Now that we've defined our function, let's use it:
+			</p>
+			<div class="codeinset">
+				<code>arrayOfIntegers = [1, 2, 3, 4, 5];</code><br>
+				<code>int sum = 0;</code><br>
+				<code>sum = sumArray(arrayOfIntegers);</code><br>
+			</div>
+			<p>
+				When we run this code, the variable <code>arrayOfIntegers</code> refers to the list of numbers from 1 to 5.
+				Next, the int type variable <code>sum</code> is initialized to 0 (we say a variable is initialized to some value if we declare it and assign it to that value at the same time).
+				The last line will set <code>sum</code> to whatever value is to the right of the assignment operator.
+				In this case, that value is whatever is returned by the <code>sumArray()</code> function when we pass in <code>arrayOfIntegers</code> as the argument, which will be the sum of the numbers 1 to 5, or 15.
+			</p>
+			<p>
+				Because we used the <code>length()</code> function, our function <code>sumArray()</code> is very flexible and can be used with arrays of all sizes, because to traverse any array, <code>i</code> must range from 0 to the length of the array minus one.
+				Writing your programs with flexibility and maintainability in mind is known as <i>soft-coding</i>, while code which is hard to maintain and generally very unflexible is known as <i>hard-coded</i>.
+				To see this difference a little more starkly, here's two examples of our <code>while</code> loop from a while back:
+			</p>
+			<div class="codeinset">
+				<code>int i = 0;</code><br>
+				<code>int sum = 0;</code><br>
+				<code>array = [1, 2, 3, 4, 5]</code><br>
+				<code>WHILE i &lt; 5:</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;sum = sum + array[i];</code><br>
+				<code>&emsp;&emsp;i = i + 1;</code><br>
+				<code>}</code><br>
+			</div>
+			<div class="codeinset">
+				<code>int i = 0;</code><br>
+				<code>int sum = 0;</code><br>
+				<code>array = [1, 2, 3, 4, 5]</code><br>
+				<code>WHILE i &lt; length(array):</code><br>
+				<code>{</code><br>
+				<code>&emsp;&emsp;sum = sum + array[i];</code><br>
+				<code>&emsp;&emsp;i = i + 1;</code><br>
+				<code>}</code><br>
+			</div>
+			<p>
+				The first example is hard-coded because it is unflexible: if we change the number of values in <code>array</code> without changing the <code>while</code> conditional, the code will break.
+				However, in the second example, the <code>while</code> loop is soft-coded because no matter how many values we put in <code>array</code> the code will still perform its intended purpose: summing the values.
+				The chief hallmark of a hard-coded piece of software is the placement of seemingly arbitrary values, like the 5 in the <code>while</code> conditional, rather than flexible solutions like the <code>length()</code> function.
 			</p>
 		</h3>
 		
@@ -185,20 +232,19 @@
 				Some examples of popular Python libraries include: <a href="https://github.com/3b1b/manim">manim</a>, <a href="https://www.pygame.org/wiki/about">pygame</a>, or <a href="https://numpy.org/">numpy</a>.
 				If they look intimidating right now, take a deep breath and don't worry. We'll get there.
 			<p>
-			<p>
-				However, we have a problem
-			</p>
 		</h3>
 		
 		<h2>In Conclusion</h2>
 		
 		<h3>
 			<p>
-				Honestly, that's pretty much all you need to know about functions at a conceptual level.
-				As you become more knowledgeable about programming, the types of parameters and return values you deal with will broaden, and the types of things you do in the function body will become more advanced and diverse, but the general concept is always the same: input in, output out.
+				Functions take inputs and return the corresponding outputs, which is useful because it allows us to reuse our code multiple times;
+				for example, we can wrap a useful behavior, like summing an array, in a function.
+				Additionally, we can use functions other people have written by importing libraries into our code, which is done in different ways in different languages.
+				As you become more knowledgeable about programming, the types of parameters and return values you deal with will broaden, and the types of things you do in the function body will become more advanced and diverse, but the general concept of functions is always the same.
 			</p>
 			<p>
-				Now that you know about the fundamentals of programming, control structures, and how CS functions work, it's time to learn about <a target="_self" href="oop-programming.html">OOP</a> (Object Oriented Programming).
+				Now that you know about the functions, it's time to learn about <a target="_self" href="oop-programming.html">OOP</a> (Object Oriented Programming).
 			</p>
 		</h3>
 	</div>
