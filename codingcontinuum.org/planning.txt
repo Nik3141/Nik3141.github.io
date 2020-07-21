@@ -159,3 +159,10 @@ We can then make specific <i>instances</i> of those classes, which actually have
 Another way to think of it is like this: a class is like a blueprint or a general description of what properties and behaviors an object might have; it's the <i>idea</i> of what a bicycle is.
 An instance of an object is an actual thing you'd encounter out in the real world; it's the bicycle which might almost knock you off the pavement while you're on your evening walk.
 The bicycle idea tells us that bicycles have a frame which has a color, but different bicycles can have different colors.
+
+Fields/Methods
+
+Inheritance
+
+Interfaces
+
